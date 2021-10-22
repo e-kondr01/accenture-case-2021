@@ -10,7 +10,7 @@ services:
       context: .
       dockerfile: ./compose/local/django/Dockerfile
     image: accenture_case_local_django
-    container_name: django
+    container_name: accenture_django
     depends_on:
       - postgres
       - mailhog
@@ -28,7 +28,7 @@ services:
       context: .
       dockerfile: ./compose/production/postgres/Dockerfile
     image: accenture_case_production_postgres
-    container_name: postgres
+    container_name: accenture_postgres
     volumes:
       - local_postgres_data:/var/lib/postgresql/data:Z
       - local_postgres_data_backups:/backups:z
