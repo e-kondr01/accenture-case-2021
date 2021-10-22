@@ -15,7 +15,7 @@ jobs:
           username: ${{ secrets.USERNAME }}
           password: ${{ secrets.PASSWORD }}
           script: |
-            cd ~/accenture_case
+            cd ~/accenture-case-2021
             git pull
             docker-compose -f production.yml exec -T postgres backup
             docker-compose -f production.yml up --detach --build --force-recreate
