@@ -6,7 +6,6 @@ on:
 
 jobs:
   deploy-production:
-    needs: [test]
     runs-on: ubuntu-latest
     steps:
       - name: deploy production with ssh
