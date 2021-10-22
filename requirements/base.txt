@@ -1,0 +1,15 @@
+argon2-cffi
+whitenoise
+psycopg2-binary
+
+# Django
+# ------------------------------------------------------------------------------
+django
+django-environ
+django-jazzmin
+# Django REST Framework
+djangorestframework
+django-cors-headers
+djangorestframework-simplejwt
+djoser
+django-filter

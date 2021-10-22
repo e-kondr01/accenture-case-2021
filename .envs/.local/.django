@@ -1,0 +1,2 @@
+DJANGO_SETTINGS_MODULE=config.settings.local
+DATABASE_URL=postgresql://szbFQUiPKEwTUEBtNppPqhUlTEYPKkRb:mrDD9f10FBN8TNQ2LYZvyyxMnORdDdX1ZGYrwouoG4OrQQVzU4bowcXscz0MzDQO@postgres:5432/accenture_case
