@@ -146,7 +146,7 @@ class KPIEntry(models.Model):
         """Сильное отклонение в значении"""
         st_dev = self.index.get_stdev()
         if self.get_diff():
-            return self.get_diff() > st_dev
+            return self.get_diff() > 2 * st_dev
         else:
             return False
 
