@@ -48,6 +48,12 @@ class KPIIndex(models.Model):
         verbose_name="целевое значение должно быть больше?"
     )
 
+    def target_value_with_sign(self) -> str:
+        if self.is_target_value_more:
+            return f">{self.target_value}"
+        else:
+            return f"<{self.target_value}"
+
     def get_actual_value(self) -> Optional[int]:
         actual_entry: "KPIEntry" = self.entries.order_by(
             "-date"

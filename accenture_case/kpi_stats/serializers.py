@@ -23,7 +23,7 @@ class KPIIndexSerializer(serializers.ModelSerializer):
             "id",
             "name",
             "description",
-            "target_value",
+            "target_value_with_sign",
             "get_actual_value",
             "actual_value_drastic_change",
             "value_difference",
