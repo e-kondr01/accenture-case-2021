@@ -11,7 +11,6 @@ class KPIEntrySerializer(serializers.ModelSerializer):
             "id",
             "date",
             "value",
-            "meets_target",
             "is_drastic_change"
         ]
 
