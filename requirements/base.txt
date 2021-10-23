@@ -1,5 +1,6 @@
 argon2-cffi
 whitenoise
+pandas
 psycopg2-binary
 
 # Django
