@@ -1,11 +1,9 @@
-name: CI/CD
+name: deploy front
 on:
-  push:
-    branches:
-      - master
+  workflow_dispatch:
 
 jobs:
-  deploy-production:
+  deploy-front:
     runs-on: ubuntu-latest
     steps:
       - name: deploy production with ssh
@@ -15,8 +13,8 @@ jobs:
           username: ${{ secrets.USERNAME }}
           password: ${{ secrets.PASSWORD }}
           script: |
-            cd ~/accenture-case-2021
+            cd ~/accenture-case-2021/accenture
             git pull
-            docker-compose -f production.yml exec -T postgres backup
+            cd ..
             docker-compose -f production.yml down
             docker-compose -f production.yml up --detach --build --force-recreate
