@@ -54,6 +54,18 @@ class KPIIndex(models.Model):
         ).first()
         return actual_entry.value
 
+    def get_previous_value(self) -> int:
+        previous_entry: "KPIEntry" = self.entries.order_by(
+            "-date"
+        )[1]
+        return previous_entry.value
+
+    def actual_value_change(self) -> int:
+        return abs(self.get_actual_value() - self.get_previous_value())
+
+    def actual_value_rise(self) -> bool:
+        return self.get_actual_value() > self.get_previous_value()
+
     def actual_value_meets_target(self) -> bool:
         actual_entry: "KPIEntry" = self.entries.order_by(
             "-date"
@@ -79,6 +91,12 @@ class KPIIndex(models.Model):
         diffs = self.get_diffs_list()
         st_dev = stdev(diffs)
         return st_dev
+
+    def actual_value_drastic_change(self) -> bool:
+        actual_entry: "KPIEntry" = self.entries.order_by(
+            "-date"
+        ).first()
+        return actual_entry.is_drastic_change()
 
     def __str__(self) -> str:
         return self.name
