@@ -48,17 +48,23 @@ class KPIIndex(models.Model):
         verbose_name="целевое значение должно быть больше?"
     )
 
-    def get_actual_value(self) -> int:
+    def get_actual_value(self) -> Optional[int]:
         actual_entry: "KPIEntry" = self.entries.order_by(
             "-date"
         ).first()
-        return actual_entry.value
+        if actual_entry:
+            return actual_entry.value
+        else:
+            return 0
 
     def get_previous_value(self) -> int:
-        previous_entry: "KPIEntry" = self.entries.order_by(
+        previous_entries = self.entries.order_by(
             "-date"
-        )[1]
-        return previous_entry.value
+        )
+        if len(previous_entries) > 1:
+            return previous_entries[1].value
+        else:
+            return 0
 
     def actual_value_change(self) -> int:
         return abs(self.get_actual_value() - self.get_previous_value())
@@ -70,7 +76,10 @@ class KPIIndex(models.Model):
         actual_entry: "KPIEntry" = self.entries.order_by(
             "-date"
         ).first()
-        return actual_entry.meets_target()
+        if actual_entry:
+            return actual_entry.meets_target()
+        else:
+            return False
 
     def get_values_list(self) -> list[int]:
         res: list = []
@@ -96,7 +105,10 @@ class KPIIndex(models.Model):
         actual_entry: "KPIEntry" = self.entries.order_by(
             "-date"
         ).first()
-        return actual_entry.is_drastic_change()
+        if actual_entry:
+            return actual_entry.is_drastic_change()
+        else:
+            return False
 
     def __str__(self) -> str:
         return self.name
