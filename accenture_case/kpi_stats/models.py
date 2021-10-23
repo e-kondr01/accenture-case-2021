@@ -1,4 +1,6 @@
 from django.db import models
+from statistics import stdev
+from typing import Optional
 
 
 class KPIArea(models.Model):
@@ -58,6 +60,26 @@ class KPIIndex(models.Model):
         ).first()
         return actual_entry.meets_target()
 
+    def get_values_list(self) -> list[int]:
+        res: list = []
+        for entry in self.entries.all():
+            res.append(entry.value)
+        return res
+
+    def get_diffs_list(self) -> list[int]:
+        res: list = []
+        values_list = self.get_values_list()
+        for i in range(1, len(values_list)):
+            res.append(
+                values_list[i] - values_list[i-1]
+            )
+        return res
+
+    def get_stdev(self) -> float:
+        diffs = self.get_diffs_list()
+        st_dev = stdev(diffs)
+        return st_dev
+
     def __str__(self) -> str:
         return self.name
 
@@ -69,7 +91,7 @@ class KPIIndex(models.Model):
 class KPIEntry(models.Model):
     """Значение показателя КПЭ за конкретную дату"""
 
-    index = models.ForeignKey(
+    index: KPIIndex = models.ForeignKey(
         to=KPIIndex,
         on_delete=models.CASCADE,
         related_name="entries",
@@ -90,6 +112,25 @@ class KPIEntry(models.Model):
             return self.value > self.index.target_value
         else:
             return self.value < self.index.target_value
+
+    def get_diff(self) -> Optional[int]:
+        previous_entry = self.index.entries.filter(
+            date__lt=self.date
+        ).order_by(
+            "-date"
+        ).first()
+        if previous_entry:
+            return abs(previous_entry.value - self.value)
+        else:
+            return None
+
+    def is_drastic_change(self) -> bool:
+        """Сильное отклонение в значении"""
+        st_dev = self.index.get_stdev()
+        if self.get_diff():
+            return self.get_diff() > st_dev
+        else:
+            return False
 
     def __str__(self) -> str:
         return f"{self.value}% {self.index} {self.date}"

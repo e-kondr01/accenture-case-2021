@@ -11,11 +11,12 @@ class KPIEntrySerializer(serializers.ModelSerializer):
             "id",
             "date",
             "value",
-            "meets_target"
+            "meets_target",
+            "is_drastic_change"
         ]
 
 
-class KPIIdexSerializer(serializers.ModelSerializer):
+class KPIIndexSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = KPIIndex
@@ -29,7 +30,7 @@ class KPIIdexSerializer(serializers.ModelSerializer):
 
 
 class KPIAreaSerializer(serializers.ModelSerializer):
-    indexes = KPIIdexSerializer(many=True, read_only=True)
+    indexes = KPIIndexSerializer(many=True, read_only=True)
 
     class Meta:
         model = KPIArea
