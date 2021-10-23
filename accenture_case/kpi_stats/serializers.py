@@ -24,10 +24,10 @@ class KPIIndexSerializer(serializers.ModelSerializer):
             "id",
             "name",
             "description",
+            "target_value",
             "get_actual_value",
-            "actual_value_meets_target",
             "actual_value_drastic_change",
-            "actual_value_change",
+            "value_difference",
             "actual_value_rise"
         ]
 

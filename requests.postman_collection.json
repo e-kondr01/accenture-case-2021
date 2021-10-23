@@ -201,76 +201,7 @@
 							]
 						}
 					},
-					"response": [
-						{
-							"name": "dashboard",
-							"originalRequest": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "{{host}}/api/kpi-dashboard",
-									"host": [
-										"{{host}}"
-									],
-									"path": [
-										"api",
-										"kpi-dashboard"
-									]
-								}
-							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "Date",
-									"value": "Sat, 23 Oct 2021 11:24:30 GMT"
-								},
-								{
-									"key": "Server",
-									"value": "WSGIServer/0.2 CPython/3.10.0"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json"
-								},
-								{
-									"key": "Vary",
-									"value": "Accept, Accept-Language, Origin"
-								},
-								{
-									"key": "Allow",
-									"value": "GET, HEAD, OPTIONS"
-								},
-								{
-									"key": "X-Frame-Options",
-									"value": "DENY"
-								},
-								{
-									"key": "Content-Length",
-									"value": "2727"
-								},
-								{
-									"key": "Content-Language",
-									"value": "ru"
-								},
-								{
-									"key": "X-Content-Type-Options",
-									"value": "nosniff"
-								},
-								{
-									"key": "X-XSS-Protection",
-									"value": "1; mode=block"
-								},
-								{
-									"key": "Referrer-Policy",
-									"value": "same-origin"
-								}
-							],
-							"cookie": [],
-							"body": "[\n    {\n        \"id\": 1,\n        \"name\": \"приём заказов\",\n        \"indexes\": [\n            {\n                \"id\": 1,\n                \"name\": \"Заказы не прошедшие проверку на техническую исполнимость\",\n                \"description\": \"% заказов не прошедших проверку и не загруженных в систему\",\n                \"get_actual_value\": 2,\n                \"actual_value_meets_target\": false,\n                \"actual_value_drastic_change\": false,\n                \"actual_value_change\": 0,\n                \"actual_value_rise\": false\n            }\n        ]\n    },\n    {\n        \"id\": 2,\n        \"name\": \"управление квотами\",\n        \"indexes\": [\n            {\n                \"id\": 2,\n                \"name\": \"% заполнения квот\",\n                \"description\": \"Какой объем клиентских квот заполнен реальными заказами\",\n                \"get_actual_value\": 71,\n                \"actual_value_meets_target\": false,\n                \"actual_value_drastic_change\": false,\n                \"actual_value_change\": 2,\n                \"actual_value_rise\": false\n            }\n        ]\n    },\n    {\n        \"id\": 3,\n        \"name\": \"календарное планирование\",\n        \"indexes\": [\n            {\n                \"id\": 5,\n                \"name\": \"Нарушение уровней запасов\",\n                \"description\": \"% случаев , когда в ближайшие 14 дней нарушается минимальный или максимальный уровень запасов на складе\",\n                \"get_actual_value\": 15,\n                \"actual_value_meets_target\": false,\n                \"actual_value_drastic_change\": true,\n                \"actual_value_change\": 7,\n                \"actual_value_rise\": false\n            },\n            {\n                \"id\": 6,\n                \"name\": \"Загрузка кампаний\",\n                \"description\": \"Уровень заполнения ручных кампаний при планировании\",\n                \"get_actual_value\": 86,\n                \"actual_value_meets_target\": true,\n                \"actual_value_drastic_change\": false,\n                \"actual_value_change\": 4,\n                \"actual_value_rise\": false\n            },\n            {\n                \"id\": 7,\n                \"name\": \"Обязательный горячий посад , %\",\n                \"description\": \"% случаев, для которых выполняется требование по горячему посаду – передача в обработку неостывшего металла\",\n                \"get_actual_value\": 27,\n                \"actual_value_meets_target\": false,\n                \"actual_value_drastic_change\": false,\n                \"actual_value_change\": 61,\n                \"actual_value_rise\": false\n            },\n            {\n                \"id\": 4,\n                \"name\": \"Плановый OTIF\",\n                \"description\": \"% заказов клиентов запланированных в окне  обещания\",\n                \"get_actual_value\": 90,\n                \"actual_value_meets_target\": false,\n                \"actual_value_drastic_change\": true,\n                \"actual_value_change\": 1,\n                \"actual_value_rise\": false\n            },\n            {\n                \"id\": 3,\n                \"name\": \"Загрузка оборудования\",\n                \"description\": \"Средний уровень загрузки оборудования по критичным агрегатам за первые 14 дней горизонта\",\n                \"get_actual_value\": 83,\n                \"actual_value_meets_target\": false,\n                \"actual_value_drastic_change\": true,\n                \"actual_value_change\": 4,\n                \"actual_value_rise\": false\n            }\n        ]\n    }\n]"
-						}
-					]
+					"response": []
 				}
 			]
 		},

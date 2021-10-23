@@ -66,20 +66,17 @@ class KPIIndex(models.Model):
         else:
             return 0
 
-    def actual_value_change(self) -> int:
-        return abs(self.get_actual_value() - self.get_previous_value())
-
     def actual_value_rise(self) -> bool:
         return self.get_actual_value() > self.get_previous_value()
 
-    def actual_value_meets_target(self) -> bool:
+    def value_difference(self) -> int:
         actual_entry: "KPIEntry" = self.entries.order_by(
             "-date"
         ).first()
         if actual_entry:
-            return actual_entry.meets_target()
+            return actual_entry.value_difference()
         else:
-            return False
+            return 0
 
     def get_values_list(self) -> list[int]:
         res: list = []
@@ -136,12 +133,8 @@ class KPIEntry(models.Model):
         verbose_name="значение (в процентах)"
     )
 
-    def meets_target(self) -> bool:
-        """Выполняется ли целевое значение?"""
-        if self.index.is_target_value_more:
-            return self.value > self.index.target_value
-        else:
-            return self.value < self.index.target_value
+    def value_difference(self) -> int:
+        return abs(self.value - self.index.target_value)
 
     def get_diff(self) -> Optional[int]:
         previous_entry = self.index.entries.filter(
