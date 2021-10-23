@@ -104,6 +104,84 @@
 							],
 							"cookie": [],
 							"body": "[\n    {\n        \"id\": 1,\n        \"date\": \"2021-09-30\",\n        \"value\": 2,\n        \"meets_target\": false\n    },\n    {\n        \"id\": 2,\n        \"date\": \"2021-10-01\",\n        \"value\": 1,\n        \"meets_target\": false\n    },\n    {\n        \"id\": 3,\n        \"date\": \"2021-10-04\",\n        \"value\": 3,\n        \"meets_target\": false\n    },\n    {\n        \"id\": 4,\n        \"date\": \"2021-10-05\",\n        \"value\": 2,\n        \"meets_target\": false\n    },\n    {\n        \"id\": 5,\n        \"date\": \"2021-10-06\",\n        \"value\": 2,\n        \"meets_target\": false\n    }\n]"
+						},
+						{
+							"name": "KPI entries for month",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/api/kpi-entries?index=3&month=true",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"kpi-entries"
+									],
+									"query": [
+										{
+											"key": "index",
+											"value": "3"
+										},
+										{
+											"key": "month",
+											"value": "true"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sat, 23 Oct 2021 12:01:28 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.10.0"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, Accept-Language, Origin"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "2267"
+								},
+								{
+									"key": "Content-Language",
+									"value": "ru"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 36,\n        \"date\": \"2021-09-08\",\n        \"value\": 84,\n        \"meets_target\": false,\n        \"is_drastic_change\": false\n    },\n    {\n        \"id\": 37,\n        \"date\": \"2021-09-09\",\n        \"value\": 81,\n        \"meets_target\": false,\n        \"is_drastic_change\": false\n    },\n    {\n        \"id\": 38,\n        \"date\": \"2021-09-10\",\n        \"value\": 87,\n        \"meets_target\": true,\n        \"is_drastic_change\": true\n    },\n    {\n        \"id\": 39,\n        \"date\": \"2021-09-11\",\n        \"value\": 88,\n        \"meets_target\": true,\n        \"is_drastic_change\": false\n    },\n    {\n        \"id\": 40,\n        \"date\": \"2021-09-12\",\n        \"value\": 84,\n        \"meets_target\": false,\n        \"is_drastic_change\": true\n    },\n    {\n        \"id\": 41,\n        \"date\": \"2021-09-13\",\n        \"value\": 81,\n        \"meets_target\": false,\n        \"is_drastic_change\": false\n    },\n    {\n        \"id\": 42,\n        \"date\": \"2021-09-14\",\n        \"value\": 88,\n        \"meets_target\": true,\n        \"is_drastic_change\": true\n    },\n    {\n        \"id\": 43,\n        \"date\": \"2021-09-15\",\n        \"value\": 88,\n        \"meets_target\": true,\n        \"is_drastic_change\": false\n    },\n    {\n        \"id\": 44,\n        \"date\": \"2021-09-16\",\n        \"value\": 88,\n        \"meets_target\": true,\n        \"is_drastic_change\": false\n    },\n    {\n        \"id\": 45,\n        \"date\": \"2021-09-17\",\n        \"value\": 88,\n        \"meets_target\": true,\n        \"is_drastic_change\": false\n    },\n    {\n        \"id\": 46,\n        \"date\": \"2021-09-18\",\n        \"value\": 83,\n        \"meets_target\": false,\n        \"is_drastic_change\": true\n    },\n    {\n        \"id\": 47,\n        \"date\": \"2021-09-19\",\n        \"value\": 85,\n        \"meets_target\": false,\n        \"is_drastic_change\": false\n    },\n    {\n        \"id\": 48,\n        \"date\": \"2021-09-20\",\n        \"value\": 84,\n        \"meets_target\": false,\n        \"is_drastic_change\": false\n    },\n    {\n        \"id\": 49,\n        \"date\": \"2021-09-21\",\n        \"value\": 83,\n        \"meets_target\": false,\n        \"is_drastic_change\": false\n    },\n    {\n        \"id\": 50,\n        \"date\": \"2021-09-22\",\n        \"value\": 87,\n        \"meets_target\": true,\n        \"is_drastic_change\": true\n    },\n    {\n        \"id\": 51,\n        \"date\": \"2021-09-23\",\n        \"value\": 82,\n        \"meets_target\": false,\n        \"is_drastic_change\": true\n    },\n    {\n        \"id\": 52,\n        \"date\": \"2021-09-24\",\n        \"value\": 87,\n        \"meets_target\": true,\n        \"is_drastic_change\": true\n    },\n    {\n        \"id\": 53,\n        \"date\": \"2021-09-25\",\n        \"value\": 85,\n        \"meets_target\": false,\n        \"is_drastic_change\": false\n    },\n    {\n        \"id\": 54,\n        \"date\": \"2021-09-26\",\n        \"value\": 84,\n        \"meets_target\": false,\n        \"is_drastic_change\": false\n    },\n    {\n        \"id\": 55,\n        \"date\": \"2021-09-27\",\n        \"value\": 86,\n        \"meets_target\": true,\n        \"is_drastic_change\": false\n    },\n    {\n        \"id\": 56,\n        \"date\": \"2021-09-28\",\n        \"value\": 88,\n        \"meets_target\": true,\n        \"is_drastic_change\": false\n    },\n    {\n        \"id\": 31,\n        \"date\": \"2021-09-30\",\n        \"value\": 87,\n        \"meets_target\": true,\n        \"is_drastic_change\": false\n    },\n    {\n        \"id\": 32,\n        \"date\": \"2021-10-01\",\n        \"value\": 85,\n        \"meets_target\": false,\n        \"is_drastic_change\": false\n    },\n    {\n        \"id\": 33,\n        \"date\": \"2021-10-04\",\n        \"value\": 89,\n        \"meets_target\": true,\n        \"is_drastic_change\": true\n    },\n    {\n        \"id\": 34,\n        \"date\": \"2021-10-05\",\n        \"value\": 87,\n        \"meets_target\": true,\n        \"is_drastic_change\": false\n    },\n    {\n        \"id\": 35,\n        \"date\": \"2021-10-06\",\n        \"value\": 83,\n        \"meets_target\": false,\n        \"is_drastic_change\": true\n    }\n]"
 						}
 					]
 				},
