@@ -4,6 +4,9 @@ from config.settings.base import APPS_DIR
 
 """Code by Alexander Lakiza"""
 
+MAX_THRESHOLD = 0.5
+MIN_THRESHOLD = 0.6
+
 
 def read_csvs():
     app_dir = APPS_DIR / "whouse_problems"
@@ -110,7 +113,7 @@ def get_problem(agrs, links, whouses, agregate, date=None):
                 percent = round(100 * curr_cap / max_cap, 2)
             except ZeroDivisionError:
                 pass
-            if curr_cap < 0.9 * max_cap:
+            if curr_cap < MAX_THRESHOLD * max_cap:
                 checking_inputs = True
                 inputs_counter += 1
                 probs_input.append(
@@ -130,7 +133,7 @@ def get_problem(agrs, links, whouses, agregate, date=None):
                     percent = round(100 * curr_cap / max_cap, 2)
                 except ZeroDivisionError:
                     pass
-                if curr_cap < 0.9 * max_cap:
+                if curr_cap < MAX_THRESHOLD * max_cap:
                     checking_inputs = True
                     inputs_counter += 1
                     probs_input.append(
@@ -151,7 +154,7 @@ def get_problem(agrs, links, whouses, agregate, date=None):
                 percent = round(100 * curr_cap / max_cap, 2)
             except ZeroDivisionError:
                 pass
-            if curr_cap > 0.3 * max_cap:
+            if curr_cap > MIN_THRESHOLD * max_cap:
                 checking_outputs = True
                 outputs_counter += 1
                 probs_output.append(
@@ -170,7 +173,7 @@ def get_problem(agrs, links, whouses, agregate, date=None):
                 percent = round(100 * curr_cap / max_cap, 2)
             except ZeroDivisionError:
                 pass
-            if curr_cap > 0.3 * max_cap:
+            if curr_cap > MIN_THRESHOLD * max_cap:
                 checking_outputs = True
                 outputs_counter += 1
                 probs_output.append(
