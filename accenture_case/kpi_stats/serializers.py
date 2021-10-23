@@ -27,7 +27,8 @@ class KPIIndexSerializer(serializers.ModelSerializer):
             "get_actual_value",
             "actual_value_drastic_change",
             "value_difference",
-            "actual_value_rise"
+            "actual_value_rise",
+            "actual_value_meets_target"
         ]
 
 

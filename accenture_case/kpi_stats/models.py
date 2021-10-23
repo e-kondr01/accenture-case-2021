@@ -62,6 +62,15 @@ class KPIIndex(models.Model):
             return actual_entry.value
         else:
             return 0
+    
+    def actual_value_meets_target(self) -> bool:
+        actual_entry: "KPIEntry" = self.entries.order_by(
+            "-date"
+        ).first()
+        if actual_entry:
+            return actual_entry.meets_target()
+        else:
+            return False
 
     def get_previous_value(self) -> int:
         previous_entries = self.entries.order_by(
@@ -160,6 +169,13 @@ class KPIEntry(models.Model):
             return self.get_diff() > 2 * st_dev
         else:
             return False
+    
+    def meets_target(self) -> bool:
+        """Выполняется ли целевое значение?"""
+        if self.index.is_target_value_more:
+            return self.value > self.index.target_value
+        else:
+            return self.value < self.index.target_value
 
     def __str__(self) -> str:
         return f"{self.value}% {self.index} {self.date}"

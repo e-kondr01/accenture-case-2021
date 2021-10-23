@@ -5,7 +5,8 @@ from accenture_case.kpi_stats.models import *
 
 class KPIIndexAdmin(admin.ModelAdmin):
     readonly_fields = [
-        "get_stdev"
+        "get_stdev",
+        "actual_value_meets_target"
     ]
 
 
